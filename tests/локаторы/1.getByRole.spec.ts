@@ -41,8 +41,8 @@ test.describe('Поиск элементов форм по ролям', () => {
   // Задание 1: Найди поле "Имя пользователя" по роли textbox и связанному label
   // Заполни поле текстом "тестовый_пользователь" и проверь значение
   test('Найти поля формы по их ролям', async ({ page }) => {
-    const usernameInput = // локатор
-      await expect(usernameInput).toBeVisible();
+    const usernameInput = page.getByText('Имя пользователя'); // локатор
+    await expect(usernameInput).toBeVisible();
     await usernameInput.fill('тестовый_пользователь');
     await expect(usernameInput).toHaveValue('тестовый_пользователь');
   });
