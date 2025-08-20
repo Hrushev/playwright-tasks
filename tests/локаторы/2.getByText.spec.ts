@@ -49,8 +49,8 @@ test.describe('Сложные случаи поиска по тексту', () =
   // Задание 1: Найди вложенный текст внутри span
   // Проверь что span находится внутри параграфа
   test('Найти вложенный текст', async ({ page }) => {
-    const nestedSpan = // локатор
-      await expect(nestedSpan).toBeVisible();
+    const nestedSpan = page.locator('span').filter({ hasText: 'вложенным текстом' }); // локатор
+    await expect(nestedSpan).toBeVisible();
     await expect(nestedSpan).toHaveText('вложенным текстом');
     const parent = await nestedSpan.locator('..');
     await expect(parent).toHaveText(/Параграф с вложенным текстом внутри/);
