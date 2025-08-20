@@ -15,7 +15,7 @@ test.describe('Базовые тесты для getByText()', () => {
   // Задание 2: Найди span-элемент с текстом "Текст внутри span"
   // Проверь что элемент существует
   test('Найти span по тексту', async ({ page }) => {
-    const spanElement = page.getByText('Текст внутри span'); // локатор
+    const spanElement = page.locator('span').filter({ hasText: 'Текст внутри span' }); // локатор
     await expect(spanElement).toBeVisible();
   });
 });
