@@ -50,8 +50,8 @@ test.describe('Поиск элементов форм по ролям', () => {
   // Задание 2: Найди чекбокс "Подписаться на рассылку" по роли checkbox
   // Проверь что он не выбран, затем выбери его и проверь снова
   test('Найти чекбоксы по роли checkbox', async ({ page }) => {
-    const newsletterCheckbox = // локатор
-      await expect(newsletterCheckbox).toBeVisible();
+    const newsletterCheckbox = page.getByRole('checkbox', { name: 'Подписаться на рассылку' }); // локатор
+    await expect(newsletterCheckbox).toBeVisible();
     await expect(newsletterCheckbox).not.toBeChecked();
     await newsletterCheckbox.check();
     await expect(newsletterCheckbox).toBeChecked();
