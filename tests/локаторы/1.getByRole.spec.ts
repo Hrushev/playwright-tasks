@@ -63,10 +63,10 @@ test.describe('Поиск элементов форм по ролям', () => {
   // 3. Найди и выбери страну из выпадающего списка
   // 4. Найди и нажми кнопку отправки
   test('Заполнить и отправить форму', async ({ page }) => {
-    await page.ЛОКАТОР.fill('тест');
-    await page.ЛОКАТОР.fill('пароль123');
-    await page.ЛОКАТОР.selectOption('ru');
-    await page.ЛОКАТОР.click();
+    await page.getByRole('textbox', { name: 'Имя пользователя' }).fill('тест');
+    await page.getByRole('textbox', { name: 'Пароль' }).fill('пароль123');
+    await page.getByLabel('Страна').selectOption('ru');
+    await page.getByRole('button', { name: 'Отправить' }).click();
   });
 });
 
