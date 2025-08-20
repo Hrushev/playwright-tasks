@@ -59,8 +59,8 @@ test.describe('Сложные случаи поиска по тексту', () =
   // Задание 2: Дождись появления динамического текста и найди его
   // Проверь что текст появился через 1 секунду
   test('Работа с динамическим контентом', async ({ page }) => {
-    const dynamicText = // локатор
-      await expect(dynamicText).toBeVisible({ timeout: 2000 });
+    const dynamicText = page.getByText('Этот текст появился после загрузки страницы'); // локатор
+    await expect(dynamicText).toBeVisible({ timeout: 2000 });
   });
 
   // Задание 3: Найди текст с множественными пробелами
