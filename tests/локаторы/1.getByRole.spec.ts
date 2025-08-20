@@ -27,8 +27,8 @@ test.describe('Поиск элементов по роли "button"', () => {
   // Задание 3: Найди элемент div с ролью button (не настоящую кнопку)
   // Проверь что элемент видим и содержит текст "Div как кнопка"
   test('Найти div с ролью кнопки', async ({ page }) => {
-    const divButton = // локатор
-      await expect(divButton).toBeVisible();
+    const divButton = page.locator('div').getByRole('button', { name: 'Div как кнопка' }); // локатор
+    await expect(divButton).toBeVisible();
     await expect(divButton).toHaveText('Div как кнопка');
   });
 });
