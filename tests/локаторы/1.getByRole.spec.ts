@@ -16,8 +16,11 @@ test.describe('Поиск элементов по роли "button"', () => {
   // Задание 2: Найди неактивную кнопку используя getByRole с указанием disabled состояния
   // Проверь что кнопка видима и действительно disabled
   test('Найти неактивную кнопку по роли и состоянию', async ({ page }) => {
-    const disabledButton = // локатор
-      await expect(disabledButton).toBeVisible();
+    const disabledButton = page.getByRole('button', {
+      name: 'Неактивная кнопка',
+      disabled: true,
+    }); // локатор
+    await expect(disabledButton).toBeVisible();
     await expect(disabledButton).toBeDisabled();
   });
 
