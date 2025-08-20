@@ -8,8 +8,8 @@ test.describe('Базовые тесты для getByText()', () => {
   // Задание 1: Найди параграф с точным текстом "Это обычный параграф текста для поиска"
   // Проверь что элемент видим на странице
   test('Найти элемент по точному тексту', async ({ page }) => {
-    const paragraph = // локатор
-      await expect(paragraph).toBeVisible();
+    const paragraph = page.getByText('Это обычный параграф текста для поиска'); // локатор
+    await expect(paragraph).toBeVisible();
   });
 
   // Задание 2: Найди span-элемент с текстом "Текст внутри span"
