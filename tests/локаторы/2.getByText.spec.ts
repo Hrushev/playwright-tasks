@@ -28,8 +28,8 @@ test.describe('Поиск по частичному совпадению', () =>
   // Задание 1: Найди элемент содержащий подстроку "важную информацию"
   // Проверь что элемент имеет класс partial-match
   test('Найти по частичному совпадению', async ({ page }) => {
-    const partialText = // локатор
-      await expect(partialText).toBeVisible();
+    const partialText = page.locator('p').filter({ hasText: 'важную информацию' }); // локатор
+    await expect(partialText).toBeVisible();
     await expect(partialText).toHaveClass('partial-match');
   });
 
