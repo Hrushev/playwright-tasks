@@ -36,8 +36,8 @@ test.describe('Поиск по частичному совпадению', () =>
   // Задание 2: Найди элемент списка содержащий слово "Специальный"
   // Проверь что это действительно элемент списка (li)
   test('Найти элемент списка по части текста', async ({ page }) => {
-    const listItem = // локатор
-      await expect(listItem).toBeVisible();
+    const listItem = page.locator('li').filter({ hasText: 'Специальный' }); // локатор
+    await expect(listItem).toBeVisible();
   });
 });
 
