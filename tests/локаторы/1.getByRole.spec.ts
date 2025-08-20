@@ -82,12 +82,12 @@ test.describe('Поиск вкладок и уведомлений по роля
   // 4. Проверь что она стала выбранной
   // 5. Найди содержимое вкладки по роли tabpanel и проверь его видимость
   test('Переключение между вкладками', async ({ page }) => {
-    const settingsTab = // локатор
-      await expect(settingsTab).toHaveAttribute('aria-selected', 'false');
+    const settingsTab = page.getByRole('tab', { name: 'Настройки' }); // локатор
+    await expect(settingsTab).toHaveAttribute('aria-selected', 'false');
     await settingsTab.click();
     await expect(settingsTab).toHaveAttribute('aria-selected', 'true');
-    const settingsPanel = // локатор
-      await settingsPanel.click();
+    const settingsPanel = page.getByText('Настройки аккаунта Конфигурация параметров аккаунта'); // локатор
+    await settingsPanel.click();
     await expect(settingsPanel).toBeVisible();
   });
 
