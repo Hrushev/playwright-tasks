@@ -35,8 +35,8 @@ test.describe('Сложные случаи для getByPlaceholder()', () => {
 
   // Задание 2: Найди поле с пробелами в placeholder
   test('Найти поле с пробелами в placeholder', async ({ page }) => {
-    const spacedInput = // локатор
-      await expect(spacedInput).toBeVisible();
+    const spacedInput = page.getByPlaceholder('Поле с пробелами в начале'); // локатор
+    await expect(spacedInput).toBeVisible();
   });
 
   // Задание 3: Дождись появления динамического поля и найди его по placeholder
