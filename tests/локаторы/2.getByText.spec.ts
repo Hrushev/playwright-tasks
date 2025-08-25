@@ -66,7 +66,7 @@ test.describe('Сложные случаи поиска по тексту', () =
   // Задание 3: Найди текст с множественными пробелами
   // Используй регулярное выражение для поиска
   test('Найти текст с пробелами', async ({ page }) => {
-    const spacedText = // локатор
-      await expect(spacedText).toBeVisible();
+    const spacedText = page.getByText(/с\s+множественными\s+пробелами/); // локатор
+    await expect(spacedText).toBeVisible();
   });
 });
