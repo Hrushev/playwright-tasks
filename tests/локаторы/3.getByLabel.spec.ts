@@ -37,9 +37,8 @@ test.describe('Тесты для чекбоксов и радиокнопок', 
   // Задание 2: Найди радиокнопку "Женский" по метке и проверь выбор
   // Затем выбери "Мужской" и проверь изменения
   test('Работа с радиокнопками', async ({ page }) => {
-    const femaleRadio = // локатор
-      await expect(femaleRadio).toBeChecked();
-
+    const femaleRadio = page.getByLabel('Женский'); // локатор
+    await expect(femaleRadio).toBeChecked();
     await page.getByLabel('Мужской').check();
     await expect(femaleRadio).not.toBeChecked();
   });
