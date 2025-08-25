@@ -16,8 +16,8 @@ test.describe('Базовые тесты для getByPlaceholder()', () => {
   // Задание 2: Найди email поле по частичному совпадению placeholder "example@"
   // Проверь что тип поля - email
   test('Найти поле по части placeholder', async ({ page }) => {
-    const emailInput = // локатор
-      await expect(emailInput).toHaveAttribute('type', 'email');
+    const emailInput = page.getByPlaceholder('example@'); // локатор
+    await expect(emailInput).toHaveAttribute('type', 'email');
   });
 });
 
