@@ -8,8 +8,8 @@ test.describe('Базовые тесты для getByLabel()', () => {
   // Задание 1: Найди поле "Имя пользователя" по связанной метке
   // Заполни поле значением "test_user" и проверь значение
   test('Найти текстовое поле по label', async ({ page }) => {
-    const username = // локатор
-      await username.fill('test_user');
+    const username = page.getByLabel('Имя пользователя'); // локатор
+    await username.fill('test_user');
     await expect(username).toHaveValue('test_user');
   });
 
