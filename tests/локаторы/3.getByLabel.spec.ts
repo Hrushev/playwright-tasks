@@ -28,8 +28,8 @@ test.describe('Тесты для чекбоксов и радиокнопок', 
   // Задание 1: Найди чекбокс "Музыка" по метке и проверь что он выбран
   // Затем сними выбор и проверь снова
   test('Работа с чекбоксами', async ({ page }) => {
-    const musicCheckbox = // локатор
-      await expect(musicCheckbox).toBeChecked();
+    const musicCheckbox = page.getByLabel('Музыка'); // локатор
+    await expect(musicCheckbox).toBeChecked();
     await musicCheckbox.uncheck();
     await expect(musicCheckbox).not.toBeChecked();
   });
