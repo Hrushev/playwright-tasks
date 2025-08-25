@@ -8,8 +8,8 @@ test.describe('Базовые тесты для getByPlaceholder()', () => {
   // Задание 1: Найди поле с placeholder "Введите ваше имя"
   // Заполни его текстом "Иван Иванов" и проверь значение
   test('Найти и заполнить поле по placeholder', async ({ page }) => {
-    const nameInput = // локатор
-      await nameInput.fill('Иван Иванов');
+    const nameInput = page.getByPlaceholder('Введите ваше имя'); // локатор
+    await nameInput.fill('Иван Иванов');
     await expect(nameInput).toHaveValue('Иван Иванов');
   });
 
