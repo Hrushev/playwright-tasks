@@ -58,8 +58,8 @@ test.describe('Сложные случаи для getByLabel()', () => {
 
   // Задание 2: Найди textarea по ID метки (aria-labelledby)
   test('Найти элемент с aria-labelledby', async ({ page }) => {
-    const address = // локатор
-      await expect(address).toBeVisible();
+    const address = page.getByLabel('Адрес доставки'); // локатор
+    await expect(address).toBeVisible();
   });
 
   // Задание 3: Найди скрытое поле поиска по label с классом hidden-label
