@@ -41,7 +41,7 @@ test.describe('Сложные случаи для getByPlaceholder()', () => {
 
   // Задание 3: Дождись появления динамического поля и найди его по placeholder
   test('Работа с динамическими полями', async ({ page }) => {
-    const dynamicInput = // локатор
-      await expect(dynamicInput).toBeVisible({ timeout: 2000 });
+    const dynamicInput = page.getByPlaceholder('Динамическое поле 1'); // локатор
+    await expect(dynamicInput).toBeVisible({ timeout: 2000 });
   });
 });
