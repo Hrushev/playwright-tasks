@@ -52,8 +52,8 @@ test.describe('Сложные случаи для getByLabel()', () => {
   // Задание 1: Найди поле телефона по тексту внутри label
   // Проверь что placeholder содержит шаблон телефона
   test('Найти поле по тексту внутри label', async ({ page }) => {
-    const phone = // локатор
-      await expect(phone).toHaveAttribute('placeholder', '+7 (XXX) XXX-XX-XX');
+    const phone = page.getByLabel('Телефон'); // локатор
+    await expect(phone).toHaveAttribute('placeholder', '+7 (XXX) XXX-XX-XX');
   });
 
   // Задание 2: Найди textarea по ID метки (aria-labelledby)
