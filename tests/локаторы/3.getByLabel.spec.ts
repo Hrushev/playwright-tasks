@@ -65,7 +65,7 @@ test.describe('Сложные случаи для getByLabel()', () => {
   // Задание 3: Найди скрытое поле поиска по label с классом hidden-label
   // Проверь что placeholder содержит "Поиск..."
   test('Найти элемент со скрытым label', async ({ page }) => {
-    const search = // локатор
-      await expect(search).toHaveAttribute('placeholder', 'Поиск...');
+    const search = page.getByLabel('Поиск'); // локатор
+    await expect(search).toHaveAttribute('placeholder', 'Поиск...');
   });
 });
