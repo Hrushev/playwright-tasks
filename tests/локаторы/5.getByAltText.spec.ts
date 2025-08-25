@@ -8,8 +8,8 @@ test.describe('Базовые тесты для getByAltText()', () => {
   // Задание 1: Найди изображение с точным alt-текстом "Красивый пейзаж с горами и озером"
   // Проверь что изображение видимо и имеет правильные размеры
   test('Найти изображение по точному alt-тексту', async ({ page }) => {
-    const landscapeImage = // локатор
-      await expect(landscapeImage).toBeVisible();
+    const landscapeImage = page.getByAltText('Красивый пейзаж с горами и озером'); // локатор
+    await expect(landscapeImage).toBeVisible();
   });
 
   // Задание 2: Найди логотип компании по alt-тексту
