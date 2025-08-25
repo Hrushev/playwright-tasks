@@ -29,8 +29,8 @@ test.describe('Сложные случаи для getByPlaceholder()', () => {
   // Задание 1: Найди textarea с многострочным placeholder
   // Проверь что это действительно textarea
   test('Найти textarea по многострочному placeholder', async ({ page }) => {
-    const textarea = // локатор
-      await expect(textarea).toBeVisible();
+    const textarea = page.getByPlaceholder('Введите ваш комментарий'); // локатор
+    await expect(textarea).toBeVisible();
   });
 
   // Задание 2: Найди поле с пробелами в placeholder
