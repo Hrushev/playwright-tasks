@@ -16,8 +16,8 @@ test.describe('Базовые тесты для getByLabel()', () => {
   // Задание 2: Найди поле email по метке "Электронная почта"
   // Проверь что placeholder содержит "example@mail.com"
   test('Найти email поле по label', async ({ page }) => {
-    const email = // локатор
-      await expect(email).toHaveAttribute('placeholder', 'example@mail.com');
+    const email = page.getByLabel('Электронная почта'); // локатор
+    await expect(email).toHaveAttribute('placeholder', 'example@mail.com');
   });
 });
 test.describe('Тесты для чекбоксов и радиокнопок', () => {
