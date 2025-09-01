@@ -15,8 +15,8 @@ test.describe('Базовые тесты для getByAltText()', () => {
   // Задание 2: Найди логотип компании по alt-тексту
   // Проверь что это действительно логотип (содержит слово "логотип" в alt)
   test('Найти логотип компании', async ({ page }) => {
-    const logo = // локатор
-      await expect(logo).toBeVisible();
+    const logo = page.getByAltText(/логотип компании/i); // локатор
+    await expect(logo).toBeVisible();
     await expect(logo).toHaveJSProperty('width', 150);
   });
 });
