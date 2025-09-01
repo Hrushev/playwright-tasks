@@ -16,8 +16,8 @@ test.describe('Базовые тесты для getByTitle()', () => {
 
   // Задание 2: Найди кнопку с подсказкой и проверь её текст
   test('Найти кнопку по title', async ({ page }) => {
-    const button = // локатор
-      await expect(button).toBeVisible();
+    const button = page.getByTitle('Кнопка с подсказкой'); // локатор
+    await expect(button).toBeVisible();
     await expect(button).toHaveText('Нажми меня');
   });
 });
