@@ -56,8 +56,8 @@ test.describe('Сложные случаи и динамический конт�
 
   // Задание 2: Найди динамически добавленную кнопку по title
   test('Найти динамически добавленный элемент', async ({ page }) => {
-    const dynamicButton = // локатор
-      await expect(dynamicButton).toBeVisible({ timeout: 2000 });
+    const dynamicButton = page.getByTitle('Кнопка добавленная динамически'); // локатор
+    await expect(dynamicButton).toBeVisible({ timeout: 2000 });
     await expect(dynamicButton).toHaveText('Новая кнопка');
   });
 
