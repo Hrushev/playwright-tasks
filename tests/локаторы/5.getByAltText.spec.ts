@@ -36,8 +36,8 @@ test.describe('Тесты для динамических изображений
   // Задание 2: Найди все изображения с alt-текстом содержащим слово "иконка"
   // Проверь что найдено как минимум 2 таких изображения
   test('Найти все иконки по частичному alt-тексту', async ({ page }) => {
-    const icons = // локатор
-      await expect(icons).toHaveCount(2);
+    const icons = page.getByAltText(/иконка/i); // локатор
+    await expect(icons).toHaveCount(2);
     await expect(icons.first()).toBeVisible();
   });
 });
