@@ -8,8 +8,8 @@ test.describe('Базовые тесты для getByTitle()', () => {
   // Задание 1: Найди элемент с точным title "Это простая подсказка"
   // Проверь что это span-элемент с классом tooltip
   test('Найти элемент по точному title', async ({ page }) => {
-    const tooltip = // локатор
-      await expect(tooltip).toBeVisible();
+    const tooltip = page.getByTitle('Это простая подсказка'); // локатор
+    await expect(tooltip).toBeVisible();
     await expect(tooltip).toHaveClass('tooltip');
     await expect(tooltip).toHaveText('Наведи на меня');
   });
