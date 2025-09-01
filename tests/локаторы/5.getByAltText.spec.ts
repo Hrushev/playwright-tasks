@@ -29,8 +29,8 @@ test.describe('Тесты для динамических изображений
   // Задание 1: Дождись появления динамического изображения и найди его по alt-тексту
   // Проверь что изображение загрузилось с правильными размерами
   test('Найти динамически загруженное изображение', async ({ page }) => {
-    const dynamicImage = // локатор
-      await expect(dynamicImage).toBeVisible({ timeout: 2000 });
+    const dynamicImage = page.getByAltText('Динамически загруженное изображение'); // локатор
+    await expect(dynamicImage).toBeVisible({ timeout: 2000 });
   });
 
   // Задание 2: Найди все изображения с alt-текстом содержащим слово "иконка"
