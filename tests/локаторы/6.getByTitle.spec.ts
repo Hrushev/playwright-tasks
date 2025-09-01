@@ -28,8 +28,8 @@ test.describe('Тесты для ссылок и специальных случ
 
   // Задание 1: Найди ссылку "Главная" по title и проверь её атрибуты
   test('Найти ссылку по title', async ({ page }) => {
-    const homeLink = // локатор
-      await expect(homeLink).toBeVisible();
+    const homeLink = page.getByTitle('Перейти на главную страницу'); // локатор
+    await expect(homeLink).toBeVisible();
     await expect(homeLink).toHaveAttribute('href', '#');
     await expect(homeLink).toHaveClass('link-with-title');
   });
