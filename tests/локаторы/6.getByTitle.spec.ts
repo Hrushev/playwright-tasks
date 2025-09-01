@@ -49,8 +49,8 @@ test.describe('Сложные случаи и динамический конт�
 
   // Задание 1: Найди элемент с title содержащим пробелы в начале и конце
   test('Найти элемент с title с пробелами', async ({ page }) => {
-    const spacedTitle = // локатор
-      await expect(spacedTitle).toBeVisible();
+    const spacedTitle = page.getByTitle('  Подсказка с пробелами  '); // локатор
+    await expect(spacedTitle).toBeVisible();
     await expect(spacedTitle).toHaveText(/Элемент с подсказкой/);
   });
 
