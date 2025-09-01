@@ -36,8 +36,8 @@ test.describe('Тесты для ссылок и специальных случ
 
   // Задание 2: Найди аббревиатуру HTML по title и проверь её расшифровку
   test('Найти аббревиатуру по title', async ({ page }) => {
-    const htmlAbbr = // локатор
-      await expect(htmlAbbr).toBeVisible();
+    const htmlAbbr = page.getByTitle('HyperText Markup Language'); // локатор
+    await expect(htmlAbbr).toBeVisible();
     await expect(htmlAbbr).toHaveText('HTML');
   });
 });
