@@ -8,7 +8,7 @@ test.describe('Базовые тесты для getByTestId()', () => {
   // Задание 1: Найди заголовок страницы по test-id "page-header"
   // Проверь что он содержит текст "Практика локатора getByTestId()"
   test('Найти заголовок страницы', async ({ page }) => {
-    const header = // локатор
+    const header = page.getByTestId('page-header');// локатор
     await expect(header).toBeVisible();
     await expect(header).toContainText('Практика локатора getByTestId()');
   });
