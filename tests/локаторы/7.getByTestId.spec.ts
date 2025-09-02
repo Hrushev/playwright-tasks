@@ -29,7 +29,7 @@ test.describe('Тесты для формы и продуктов', () => {
 
   // Задание 1: Найди карточку продукта по test-id и проверь её содержимое
   test('Проверить карточку продукта', async ({ page }) => {
-    const productCard = // локатор
+    const productCard = page.getByTestId('product-card-1');// локатор
     await expect(productCard).toBeVisible();
 
     const productName = productCard.getByTestId('product-name');
