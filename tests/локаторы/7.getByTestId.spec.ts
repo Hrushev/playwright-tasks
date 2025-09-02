@@ -8,7 +8,7 @@ test.describe('Базовые тесты для getByTestId()', () => {
   // Задание 1: Найди заголовок страницы по test-id "page-header"
   // Проверь что он содержит текст "Практика локатора getByTestId()"
   test('Найти заголовок страницы', async ({ page }) => {
-    const header = page.getByTestId('page-header');// локатор
+    const header = page.getByTestId('page-header'); // локатор
     await expect(header).toBeVisible();
     await expect(header).toContainText('Практика локатора getByTestId()');
   });
@@ -16,7 +16,7 @@ test.describe('Базовые тесты для getByTestId()', () => {
   // Задание 2: Найди все кнопки "В корзину" по test-id "add-to-cart-btn"
   // Проверь что найдено 2 такие кнопки
   test('Найти все кнопки добавления в корзину', async ({ page }) => {
-    const addButtons = // локатор
+    const addButtons = page.getByTestId('add-to-cart-btn');// локатор
     await expect(addButtons).toHaveCount(2);
     await expect(addButtons.first()).toHaveText('В корзину');
   });
