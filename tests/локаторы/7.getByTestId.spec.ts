@@ -59,7 +59,7 @@ test.describe('Специальные случаи для getByTestId()', () => 
 
   // Задание 1: Найди скрытый элемент по test-id и проверь что он не видим
   test('Проверить скрытый элемент', async ({ page }) => {
-    const hiddenElement = // локатор
+    const hiddenElement = page.getByTestId('hidden-element');// локатор
     await expect(hiddenElement).toBeHidden();
     await expect(hiddenElement).toHaveText('Этот элемент скрыт');
   });
