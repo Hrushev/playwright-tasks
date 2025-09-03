@@ -66,7 +66,7 @@ test.describe('Специальные случаи для getByTestId()', () => 
 
   // Задание 2: Дождись появления динамического элемента и найди его по test-id
   test('Найти динамически добавленный элемент', async ({ page }) => {
-    const dynamicElement = // локатор
+    const dynamicElement = page.getByTestId('dynamic-element');// локатор
     await expect(dynamicElement).toBeVisible({ timeout: 2000 });
     await expect(dynamicElement).toHaveText('Динамически добавленный элемент');
   });
