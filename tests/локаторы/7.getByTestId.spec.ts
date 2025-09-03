@@ -41,7 +41,7 @@ test.describe('Тесты для формы и продуктов', () => {
 
   // Задание 2: Найди форму заказа и заполни её
   test('Заполнить форму заказа', async ({ page }) => {
-    const form = // локатор
+    const form = page.getByTestId('order-form');// локатор
     await expect(form).toBeVisible();
 
     await form.getByTestId('name-input').fill('Иван Иванов');
