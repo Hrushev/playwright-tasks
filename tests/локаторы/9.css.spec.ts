@@ -11,7 +11,7 @@ test.describe('Продвинутые CSS-селекторы', () => {
     //    - Содержит текст "Смартфон"
     //    - Цена меньше 50 000 ₽
     const featuredSmartphone = page.locator(
-      '.product-card.featured:has-text("Смартфон") .price-value',
+      '.product-card.featured:has-text("Смартфон") .price-value:has-text("49 999")',
     );
     await expect(featuredSmartphone).toHaveText('49 999');
 
@@ -34,14 +34,18 @@ test.describe('Динамический контент с условиями', (
     //    - Имеет класс disabled
     //    - Содержит текст "Недоступно"
     //    - Не имеет атрибута type="submit"
-    const dynamicButton = page.locator(''); // твой код
+    const dynamicButton = page.locator(
+      '#dynamic-content .btn.disabled:has-text("Недоступно"):not([type="submit"])',
+    ); // твой код
     await expect(dynamicButton).toBeVisible({ timeout: 2000 });
 
     // 2. Найти динамический товар, который:
     //    - Цена меньше 10 000 ₽
     //    - Не является рекомендуемым (featured)
-    const cheapProduct = // твой код
-      await expect(cheapProduct).toHaveText('9 999');
+    const cheapProduct = page.locator(
+      '#dynamic-content .product-card:not(.featured) .price-value:has-text("9")',
+    ); // твой код
+    await expect(cheapProduct).toHaveText('9 999');
   });
 
   test('Комбинации с :has и :not', async ({ page }) => {
