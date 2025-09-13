@@ -105,12 +105,11 @@ test.describe('Продвинутые техники кликов', () => {
   test('Удержание кнопки изменяет статус', async ({ page }) => {
     const holdButton = page.getByText('Удерживай меня');
 
-    await holdButton.hover();
-    await page.mouse.down(); // твой код
+    await holdButton.dispatchEvent('mousedown'); // твой код
     await expect(page.getByText('Статус: нажата')).toBeVisible();
 
     await page.waitForTimeout(1000);
-    await page.mouse.up(); // твой код
+    await holdButton.dispatchEvent('mouseup'); // твой код
     await expect(page.getByText('Статус: отпущена')).toBeVisible();
   });
 });
