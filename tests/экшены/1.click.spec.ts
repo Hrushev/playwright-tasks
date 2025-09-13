@@ -12,11 +12,11 @@ test.describe('Базовые действия с кликами', () => {
   // 4. Повторить клики и проверки
   test('Обычный клик по кнопке увеличивает счетчик', async ({ page }) => {
     const button = page.getByText('Кликни меня', { exact: true });
-    // твой код
+    await button.click(); // твой код
     await expect(page.getByText('Результат: 1 кликов')).toBeVisible();
 
-    // твой код
-    // твой код
+    await button.click(); // твой код
+    await button.click(); // твой код
     await expect(page.getByText('Результат: 3 кликов')).toBeVisible();
   });
 
