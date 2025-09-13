@@ -52,13 +52,17 @@ test.describe('Динамический контент с условиями', (
     // 1. Найти все карточки, которые:
     //    - Не имеют статуса sold-out
     //    - Содержат кнопку с текстом "В корзину"
-    const availableProducts = // твой код
-      await expect(availableProducts).toHaveCount(2);
+    const availableProducts = page.locator(
+      '.product-card:not(.sold-out):has(.btn:has-text("В корзину"))',
+    ); // твой код
+    await expect(availableProducts).toHaveCount(2);
 
     // 2. Найти ячейки таблицы, которые:
     //    - В строках с активными пользователями
     //    - Не являются ячейками с email
-    const activeUserCells = // твой код
-      await expect(activeUserCells).toHaveCount(3); // ID, Имя, Статус
+    const activeUserCells = page.locator(
+      '#user-table tr:has(.status-active) td:not(:nth-child(3))',
+    ); // твой код
+    await expect(activeUserCells).toHaveCount(3); // ID, Имя, Статус
   });
 });
