@@ -45,12 +45,12 @@ test.describe('Действия с правой кнопкой мыши', () => 
   // 5. Проверить текст подтверждения
   test('Правый клик открывает контекстное меню', async ({ page }) => {
     const rightClickArea = page.getByText('Кликни правой кнопкой');
-    // твой код
+    await rightClickArea.click({ button: 'right' }); // твой код
 
     const contextMenu = page.getByText('Копировать').first();
     await expect(contextMenu).toBeVisible();
 
-    // твой код
+    await contextMenu.click(); // твой код
     await expect(page.getByText('Выбрано: Копировать')).toBeVisible();
   });
 
