@@ -63,7 +63,13 @@ test.describe('Действия с правой кнопкой мыши', () => 
     const rightClickArea = page.getByText('Кликни правой кнопкой');
     const box = await rightClickArea.boundingBox();
     if (box) {
-      // твой код
+      await rightClickArea.click({
+        button: 'right',
+        position: {
+          x: box.width / 2,
+          y: box.height / 2,
+        },
+      }); // твой код
     }
     await expect(page.getByText('Копировать').first()).toBeVisible();
   });
