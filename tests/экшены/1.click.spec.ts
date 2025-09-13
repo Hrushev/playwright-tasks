@@ -86,7 +86,12 @@ test.describe('Продвинутые техники кликов', () => {
   // 3. Проверить что координаты зарегистрированы
   test('Клик в конкретных координатах регистрирует позицию', async ({ page }) => {
     const clickArea = page.getByText('Кликни в любом месте');
-    // твой код
+    await clickArea.click({
+      position: {
+        x: 50,
+        y: 101,
+      },
+    }); // твой код
 
     await expect(page.getByText(/Позиция?/)).toHaveText(/^Позиция: \(\d+, \d+\)$/);
   });
