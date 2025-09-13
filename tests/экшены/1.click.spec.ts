@@ -27,7 +27,7 @@ test.describe('Базовые действия с кликами', () => {
   // 4. Повторить для проверки инкремента
   test('Двойной клик увеличивает специальный счетчик', async ({ page }) => {
     const dblClickArea = page.locator('#dblclick-area'); // Локатор для счетчика
-    // твой код
+    await dblClickArea.dblclick(); // твой код
     await expect(dblClickArea).toContainText('1');
   });
 });
