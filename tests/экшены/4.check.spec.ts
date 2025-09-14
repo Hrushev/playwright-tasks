@@ -56,7 +56,7 @@ test.describe('Сложные сценарии работы с check()', () => {
     const tosContainer = page.locator('.tos-container');
 
     await tosContainer.scrollIntoViewIfNeeded();
-    // твой код
+    await agreeCheckbox.check(); // твой код
     await expect(agreeCheckbox).toBeChecked();
   });
 
