@@ -48,7 +48,7 @@ test.describe('Заполнение специальных типов полей
     const bioField = page.getByLabel('Краткая биография');
     const longText = 'Меня зовут Иван.\nЯ работаю тестировщиком.\nЛюблю автоматизацию.';
 
-    // твой код
+    await bioField.fill(longText); // твой код
     await expect(bioField).toHaveValue(longText);
   });
 
