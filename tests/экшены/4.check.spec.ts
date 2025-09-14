@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { syncBuiltinESMExports } from 'module';
 
 test.describe('Работа с базовыми чекбоксами', () => {
   test.beforeEach(async ({ page }) => {
@@ -93,21 +94,27 @@ test.describe('Комплексное тестирование формы с ч�
   // 6. Проверить все состояния
   test('Полное заполнение формы с проверкой состояний', async ({ page }) => {
     // Чекбоксы
-    // твой код
-    // твой код
+    const subscribeCheckbox = page.getByLabel('Подписаться на рассылку');
+    const politicCheckbox = page.getByLabel('Я принимаю условия соглашения');
+    await subscribeCheckbox.check(); // твой код
+    await politicCheckbox.check(); // твой код
 
     // Группа интересов
-
-    // твой код
-    // твой код
-    // твой код
+    const sportCheckbox = page.getByLabel('Спорт');
+    const musicCheckbox = page.getByLabel('Музыка');
+    const cinemaCheckbox = page.getByLabel('Кино');
+    await sportCheckbox.check(); // твой код
+    await musicCheckbox.uncheck(); // твой код
+    await cinemaCheckbox.check(); // твой код
 
     // Радио-кнопки
-    // твой код
+    const mailRadiobutton = page.getByLabel('Почта России');
+    await mailRadiobutton.check(); // твой код
 
     // Кастомный элемент
     await page.locator('.tos-container').scrollIntoViewIfNeeded();
-    // твой код
+    const politic2Checkbox = page.getByLabel('Я прочитал и согласен с условиями');
+    await politic2Checkbox.check(); // твой код
 
     // Проверки
     await expect(page.getByLabel('Подписаться на рассылку')).toBeChecked();
