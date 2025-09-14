@@ -81,10 +81,10 @@ test.describe('Валидация и сложные сценарии запол�
     const phoneField = page.getByLabel('Телефон');
     const errorFeedback = page.getByText('Требуется 10 цифр');
 
-    // твой код
+    await phoneField.fill('12 3'); // твой код
     await expect(errorFeedback).toBeVisible();
 
-    // твой код
+    await phoneField.fill('9253598585'); // твой код
     await expect(errorFeedback).toBeHidden();
   });
 
