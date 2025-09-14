@@ -83,7 +83,7 @@ test.describe('Продвинутые сценарии работы с select', 
     const dynamicSelect = page.getByLabel('Динамический select');
     await expect(dynamicSelect).toBeVisible({ timeout: 2000 });
 
-    // твой код
+    await dynamicSelect.selectOption({ label: 'Опция 2' }); // твой код
     await expect(dynamicSelect).toHaveValue('opt2');
   });
 });
