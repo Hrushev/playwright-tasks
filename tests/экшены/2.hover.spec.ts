@@ -110,11 +110,11 @@ test.describe('Выпадающие меню', () => {
     const submenu2 = page.getByText('Подменю 2.1');
 
     // Наводим на первое меню
-    // твой код
+    await menuItem1.hover(); // твой код
     await expect(submenu1).toBeVisible();
 
     // Переходим на второе меню
-    // твой код
+    await menuItem2.hover(); // твой код
     await expect(submenu1).toBeHidden();
     await expect(submenu2).toBeVisible();
   });
