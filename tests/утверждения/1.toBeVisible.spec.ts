@@ -73,5 +73,13 @@ test.describe('Тестирование видимости элементов с
     // 3. Найти кнопку #show-delayed и кликнуть по ней
     // 4. С таймаутом 3 секунды дождаться появления элемента
     // 5. Проверить что элемент содержит текст "Элемент с задержкой появления"
+    const delayedElement = page.locator('#delayed-element');
+    await expect(delayedElement).not.toBeVisible();
+
+    const showDelayed = page.locator('#show-delayed');
+    await showDelayed.click();
+
+    await expect(delayedElement).toBeVisible({ timeout: 3000 });
+    await expect(delayedElement).toHaveText('Элемент с задержкой появления');
   });
 });
