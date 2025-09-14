@@ -13,7 +13,7 @@ test.describe('Базовые hover-эффекты', () => {
   test('Hover события логируются', async ({ page }) => {
     const hoverBox = page.getByText('Наведи на меня');
 
-    // твой код
+    await hoverBox.hover(); // твой код
     await expect(page.locator('#hover-log')).toContainText('Наведение на простой блок');
 
     await page.mouse.move(0, 0);
