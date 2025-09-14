@@ -10,6 +10,9 @@ test.describe('Тестирование видимости элементов с
     // 1. Найти элемент с id "always-visible"
     // 2. Проверить что элемент видим с помощью toBeVisible()
     // 3. Проверить что элемент содержит текст "Всегда видимый элемент"
+    const visibleElement = page.locator('#always-visible');
+    await expect(visibleElement).toBeVisible();
+    await expect(visibleElement).toHaveText('Всегда видимый элемент');
   });
 
   test('Тест элементов с разными типами скрытия', async ({ page }) => {
