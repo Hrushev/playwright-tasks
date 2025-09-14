@@ -25,11 +25,11 @@ test.describe('Заполнение базовых полей формы', () =>
     const emailField = page.getByPlaceholder('example@mail.com');
     const errorFeedback = page.getByText('Введите корректный email');
 
-    // твой код
+    await emailField.fill('123.ru'); // твой код
     await emailField.blur(); // Триггерим валидацию
     await expect(errorFeedback).toBeVisible();
 
-    // твой код
+    await emailField.fill('123@email.ru'); // твой код
     await emailField.blur(); // Триггерим валидацию
     await expect(errorFeedback).toBeHidden();
   });
