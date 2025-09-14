@@ -15,7 +15,7 @@ test.describe('Работа с базовыми select элементами', ()
     const countrySelect = page.getByLabel('Страна');
     await expect(countrySelect).toHaveValue('');
 
-    // твой код
+    await countrySelect.selectOption('ru'); // твой код
     await expect(countrySelect).toHaveValue('ru');
     await expect(page.locator('#country-feedback')).toHaveText('Выбрано: Россия');
   });
