@@ -49,6 +49,21 @@ test.describe('Тестирование видимости элементов с
     //      - display: block
     //      - visibility: visible
     //      - opacity: 1
+    const showDisplay = page.locator('#show-display');
+    const showVisibility = page.locator('#show-visibility');
+    const showOpacity = page.locator('#show-opacity');
+
+    await showDisplay.click();
+    await expect(page.locator('#toggle-display')).toBeVisible();
+    await expect(page.locator('#toggle-display')).toHaveCSS('display', 'block');
+
+    await showVisibility.click();
+    await expect(page.locator('#toggle-visibility')).toBeVisible();
+    await expect(page.locator('#toggle-visibility')).toHaveCSS('visibility', 'visible');
+
+    await showOpacity.click();
+    await expect(page.locator('#toggle-opacity')).toBeVisible();
+    await expect(page.locator('#toggle-opacity')).toHaveCSS('opacity', '1');
   });
 
   test('Тест элемента с задержкой появления', async ({ page }) => {
