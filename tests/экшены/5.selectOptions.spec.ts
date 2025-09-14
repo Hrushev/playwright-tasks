@@ -26,7 +26,7 @@ test.describe('Работа с базовыми select элементами', ()
   // 3. Проверить значение и фидбэк
   test('Выбор страны по тексту', async ({ page }) => {
     const countrySelect = page.getByLabel('Страна');
-    await countrySelect.selectOption('de'); // твой код
+    await countrySelect.selectOption({ label: 'Германия' }); // твой код
 
     await expect(countrySelect).toHaveValue('de');
     await expect(page.locator('#country-feedback')).toHaveText('Выбрано: Германия');
