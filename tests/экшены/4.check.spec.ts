@@ -17,12 +17,12 @@ test.describe('Работа с базовыми чекбоксами', () => {
     const status = page.locator('#newsletter-status');
 
     await expect(newsletterCheckbox).not.toBeChecked();
-    // твой код
+    await newsletterCheckbox.check(); // твой код
     await expect(newsletterCheckbox).toBeChecked();
     await expect(status).toHaveText('Подписаны');
     await expect(status).toHaveClass(/checked/);
 
-    // твой код
+    await newsletterCheckbox.uncheck(); // твой код
     await expect(newsletterCheckbox).not.toBeChecked();
     await expect(status).toHaveText('Не подписаны');
   });
