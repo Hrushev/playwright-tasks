@@ -96,13 +96,13 @@ test.describe('Валидация и сложные сценарии запол�
   test('Постепенное заполнение с очисткой', async ({ page }) => {
     const cardField = page.getByLabel('Кредитная карта');
 
-    // твой код
+    await cardField.fill('1234'); // твой код
     await expect(cardField).toHaveValue('1234');
 
     await cardField.clear();
     await expect(cardField).toHaveValue('');
 
-    // твой код
+    await cardField.fill('1234 5678 9012 3456'); // твой код
     await expect(cardField).toHaveValue('1234 5678 9012 3456');
   });
 });
