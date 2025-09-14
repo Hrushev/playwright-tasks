@@ -70,7 +70,7 @@ test.describe('Продвинутые сценарии работы с select', 
   test('Выбор из группированных опций', async ({ page }) => {
     const carBrandSelect = page.getByLabel('Марка автомобиля');
 
-    // твой код
+    await carBrandSelect.selectOption('toyota'); // твой код
 
     await expect(carBrandSelect).toHaveValue('toyota');
   });
