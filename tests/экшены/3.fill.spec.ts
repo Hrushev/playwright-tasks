@@ -11,7 +11,7 @@ test.describe('Заполнение базовых полей формы', () =>
   // 3. Проверить что значение установлено правильно
   test('Заполнение текстового поля', async ({ page }) => {
     const usernameField = page.getByLabel('Имя пользователя');
-    // твой код
+    await usernameField.fill('Иван Иванов'); // твой код
     await expect(usernameField).toHaveValue('Иван Иванов');
   });
 
