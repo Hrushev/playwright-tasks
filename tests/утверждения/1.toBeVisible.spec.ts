@@ -23,6 +23,17 @@ test.describe('Тестирование видимости элементов с
     //    - #toggle-opacity (opacity: 0)
     // 2. Проверить что #toggle-display и #toggle-visibility не видны с помощью not.toBeVisible()
     // 3. Проверить что #toggle-opacity виден с помощью toBeVisible()
+    const toggleDisplay = page.locator('#toggle-display');
+    const toggleVisibility = page.locator('#toggle-visibility');
+    const toggleOpacity = page.locator('#toggle-opacity');
+
+    await expect(toggleDisplay).not.toBeVisible();
+    await expect(toggleVisibility).not.toBeVisible();
+    await expect(toggleOpacity).toBeVisible();
+
+    await expect(toggleDisplay).toHaveCSS('display', 'none');
+    await expect(toggleVisibility).toHaveCSS('visibility', 'hidden');
+    await expect(toggleOpacity).toHaveCSS('opacity', '0');
   });
 
   test('Тест изменения видимости элементов', async ({ page }) => {
