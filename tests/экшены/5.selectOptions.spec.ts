@@ -50,7 +50,7 @@ test.describe('Работа с select multiple', () => {
   test('Множественный выбор по значениям', async ({ page }) => {
     const languagesSelect = page.getByLabel('Языки программирования');
 
-    // твой код
+    await languagesSelect.selectOption(['js', 'py']); // твой код
 
     const selectedOptions = await getSelectedValues(languagesSelect);
     expect(selectedOptions).toEqual(['js', 'py']);
