@@ -57,7 +57,7 @@ test.describe('Всплывающие подсказки', () => {
     const tooltip = page.getByText('Это текст подсказки');
 
     const box = await tooltipTrigger.boundingBox();
-    // твой код
+    await tooltipTrigger.hover(); // твой код
 
     const tooltipBox = await tooltip.boundingBox();
     if (tooltipBox && box) {
