@@ -91,7 +91,7 @@ test.describe('Выпадающие меню', () => {
     await expect(submenu).toBeHidden();
 
     // Наводим курсор
-    // твой код
+    await menuItem.hover(); // твой код
 
     // Проверяем что подменю появилось
     await expect(submenu).toBeVisible();
