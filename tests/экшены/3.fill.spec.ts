@@ -59,8 +59,9 @@ test.describe('Заполнение специальных типов полей
   // 4. Проверить что не-числовые значения не принимаются
   test('Заполнение числового поля', async ({ page }) => {
     const ageField = page.getByLabel('Возраст');
+    const age = '30';
 
-    // твой код
+    await ageField.fill(age); // твой код
     await expect(ageField).toHaveValue('30');
   });
 });
