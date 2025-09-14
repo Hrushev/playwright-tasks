@@ -40,7 +40,7 @@ test.describe('Всплывающие подсказки', () => {
     await expect(tooltip).toBeHidden();
 
     // Наводим курсор
-    // твой код
+    await tooltipTrigger.hover(); // твой код
 
     // Проверяем появление подсказки
     await expect(tooltip).toBeVisible();
