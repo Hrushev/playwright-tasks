@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { it } from 'node:test';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('https://osstep.github.io/assertion_tocontaintext');
@@ -38,6 +39,11 @@ test('3. Проверка списка элементов', async ({ page }) => 
   // 3. Проверить что он содержит текст "Intermediate"
   // 4. Нажать кнопку #add-item
   // 5. Проверить что список теперь содержит текст "New added item"
+  const itemList = page.locator('#item-list');
+  await expect(itemList).toContainText('Item 1: Basic');
+  await expect(itemList).toContainText('Intermediate');
+  await page.locator('#add-item').click();
+  await expect(itemList).toContainText('New added item');
 });
 
 test('4. Проверка скрытого/отображаемого текста', async ({ page }) => {
