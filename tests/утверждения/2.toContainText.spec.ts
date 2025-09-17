@@ -23,6 +23,12 @@ test('2. Проверка динамически изменяемого текс
   // 3. Проверить что текст теперь содержит "Text was changed at"
   // 4. Нажать кнопку #add-part
   // 5. Проверить что текст теперь содержит "(additional part)"
+  const dynamicText = page.locator('#dynamic-text');
+  await expect(dynamicText).toHaveText('Initial dynamic text');
+  await page.locator('#change-text').click();
+  await expect(dynamicText).toContainText('Text was changed at');
+  await page.locator('#add-part').click();
+  await expect(dynamicText).toContainText('(additional part)');
 });
 
 test('3. Проверка списка элементов', async ({ page }) => {
