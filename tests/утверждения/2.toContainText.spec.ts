@@ -10,6 +10,10 @@ test('1. Проверка статического текста', async ({ page 
   // 2. Проверить что он содержит текст "static text block"
   // 3. Проверить что он содержит текст "important information"
   // 4. Проверить что он НЕ содержит текст "dynamic content"
+  const staticText = page.locator('#static-text');
+  await expect(staticText).toContainText('static text block');
+  await expect(staticText).toContainText('important information');
+  await expect(staticText).not.toContainText('dynamic content');
 });
 
 test('2. Проверка динамически изменяемого текста', async ({ page }) => {
