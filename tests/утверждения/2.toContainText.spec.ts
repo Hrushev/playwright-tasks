@@ -53,6 +53,7 @@ test('4. Проверка скрытого/отображаемого текст
   // 3. Проверить что элемент теперь содержит текст "special content"
   // 4. Проверить что элемент содержит текст "hidden but now is visible"
   const hiddenContent = page.locator('#hidden-content');
+  await expect(hiddenContent).not.toBeVisible();
   await page.locator('#toggle-text').click();
 
   await expect(hiddenContent).toContainText('special content');
