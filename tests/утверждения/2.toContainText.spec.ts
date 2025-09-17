@@ -67,4 +67,9 @@ test('5. Проверка частичного совпадения в длин�
   // 3. Проверить что он содержит "lazy dog"
   // 4. Проверить что он содержит "all letters of the English alphabet"
   // 5. Проверить что он НЕ содержит "all letters of the Russian alphabet"
+  const partialText = page.locator('#partial-text');
+  await expect(partialText).toContainText('quick brown fox');
+  await expect(partialText).toContainText('lazy dog');
+  await expect(partialText).toContainText('all letters of the English alphabet');
+  await expect(partialText).not.toContainText('all letters of the Russian alphabet');
 });
