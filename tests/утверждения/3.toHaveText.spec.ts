@@ -80,4 +80,12 @@ test('5. Проверка динамического списка', async ({ pag
   // 4. Проверить что текст теперь: "First item\nSecond item\nItem 3"
   // 5. Нажать #clear-list
   // 6. Проверить что текст стал: "Empty list"
+  const itemsList = page.locator('#items-list');
+  await expect(itemsList).toHaveText('First item\nSecond item');
+
+  await page.locator('#add-item').click();
+  await expect(itemsList).toHaveText('First item\nSecond item\nItem 3');
+
+  await page.locator('#clear-list').click();
+  await expect(itemsList).toHaveText('Empty list');
 });
