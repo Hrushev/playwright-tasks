@@ -25,6 +25,14 @@ test('2. Проверка работы счетчика', async ({ page }) => {
   // 3. Проверить что текст стал "1"
   // 4. Нажать кнопку #reset
   // 5. Проверить что текст снова "0"
+  const counter = page.locator('#counter');
+  await expect(counter).toHaveText('0');
+
+  await page.locator('#increment').click();
+  await expect(counter).toHaveText('1');
+
+  await page.locator('#reset').click();
+  await expect(counter).toHaveText('0');
 });
 
 test('3. Проверка карточки пользователя', async ({ page }) => {
