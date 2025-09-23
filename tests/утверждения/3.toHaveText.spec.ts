@@ -45,6 +45,19 @@ test('3. Проверка карточки пользователя', async ({ p
   //    - username: "user_active"
   //    - email: "active.user@example.com"
   //    - status: "Active"
+  const userName = page.locator('#username');
+  await expect(userName).toHaveText('user_guest');
+
+  const userEmail = page.locator('#user-email');
+  await expect(userEmail).toHaveText('guest@example.com');
+
+  const userStatus = page.locator('#user-status');
+  await expect(userStatus).toHaveText('Inactive');
+
+  await page.locator('#activate-user').click();
+  await expect(userName).toHaveText('user_active');
+  await expect(userEmail).toHaveText('active.user@example.com');
+  await expect(userStatus).toHaveText('Active');
 });
 
 test('4. Проверка форматированного текста', async ({ page }) => {
