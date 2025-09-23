@@ -65,6 +65,10 @@ test('4. Проверка форматированного текста', async 
   // 1. Найти элемент #formatted-text
   // 2. Проверить что его текст точно соответствует (включая все пробелы и переносы):
   //    "Text   with   extra   spaces   and\n        line\n        breaks"
+  const formattedText = page.locator('#formatted-text');
+  await expect(formattedText).toHaveText(
+    'Text   with   extra   spaces   and\n        line\n        breaks',
+  );
 });
 
 test('5. Проверка динамического списка', async ({ page }) => {
