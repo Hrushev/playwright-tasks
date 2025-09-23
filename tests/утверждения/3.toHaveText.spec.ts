@@ -11,6 +11,11 @@ test('1. Проверка точного соответствия текста',
   //    "This text must match exactly, including punctuation! (100%)"
   // 3. Убедиться что проверка чувствительна к регистру, пробелам и знакам препинания
   // Негативные проверки
+  const exactText = page.locator('#exact-text');
+  await expect(exactText).toHaveText('This text must match exactly, including punctuation! (100%)');
+  await expect(exactText).not.toHaveText(
+    'this text must Match Exactly, including Punctuation! (100%)',
+  );
 });
 
 test('2. Проверка работы счетчика', async ({ page }) => {
