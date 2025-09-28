@@ -142,4 +142,21 @@ test('5. Проверка пустых значений', async ({ page }) => {
   // 5. Проверить что поле "Телефон" пустое
   // 6. Проверить что список "Страна" содержит пустое значение
   // 7. Проверить что изначально пустое поле "Электронная почта" осталось пустым
+  const userName = page.getByLabel('Имя пользователя:');
+  await expect(userName).toHaveValue('Гость');
+  await userName.clear();
+  await expect(userName).toHaveValue('');
+
+  const comment = page.getByLabel('Комментарии:');
+  await expect(comment).toHaveValue('');
+
+  const phone = page.getByLabel('Телефон:');
+  await expect(phone).toHaveValue('+7');
+  await phone.clear();
+  await expect(phone).toHaveValue('');
+
+  const listCountry = page.getByLabel('Страна:');
+  await expect(listCountry).toHaveValue('ru');
+  await listCountry.selectOption('-- Выберите страну --');
+  await expect(listCountry).toHaveValue('');
 });
