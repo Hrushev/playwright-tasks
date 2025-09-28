@@ -11,6 +11,20 @@ test('1. Проверка начальных значений полей', async
   // 3. Найти поле "Телефон" и проверить значение "+7"
   // 4. Найти поле "Комментарии" и проверить что оно пустое
   // 5. Найти выпадающий список "Страна" и проверить значение "ru"
+  const userName = page.getByLabel('Имя пользователя:');
+  await expect(userName).toHaveValue('Гость');
+
+  const email = page.getByLabel('Электронная почта:');
+  await expect(email).toHaveValue('');
+
+  const phone = page.getByLabel('Телефон:');
+  await expect(phone).toHaveValue('+7');
+
+  const comment = page.getByLabel('Комментарии:');
+  await expect(comment).toHaveValue('');
+
+  const listCountry = page.getByLabel('Страна:');
+  await expect(listCountry).toHaveValue('ru');
 });
 
 test('2. Проверка изменения значений полей', async ({ page }) => {
