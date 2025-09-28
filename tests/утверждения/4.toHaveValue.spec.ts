@@ -71,6 +71,37 @@ test('3. Проверка сброса формы', async ({ page }) => {
   // 6. Проверить что поле "Электронная почта" пустое
   // 7. Проверить что поле "Телефон" содержит "+7"
   // 8. Проверить что список "Страна" содержит значение "ru"
+  const userName = page.getByLabel('Имя пользователя:');
+  await expect(userName).toHaveValue('Гость');
+  await userName.fill('Петр');
+  await expect(userName).toHaveValue('Петр');
+
+  const email = page.getByLabel('Электронная почта:');
+  await expect(email).toHaveValue('');
+  await email.fill('test@test.ru');
+  await expect(email).toHaveValue('test@test.ru');
+
+  const phone = page.getByLabel('Телефон:');
+  await expect(phone).toHaveValue('+7');
+  await phone.fill('+7 (123) 456-78-90');
+  await expect(phone).toHaveValue('+7 (123) 456-78-90');
+
+  const comment = page.getByLabel('Комментарии:');
+  await expect(comment).toHaveValue('');
+  await comment.fill('Тестовый комментарий');
+  await expect(comment).toHaveValue('Тестовый комментарий');
+
+  const listCountry = page.getByLabel('Страна:');
+  await expect(listCountry).toHaveValue('ru');
+  await listCountry.selectOption('Беларусь');
+  await expect(listCountry).toHaveValue('by');
+
+  await page.locator('#reset-btn').click();
+  await expect(userName).toHaveValue('Гость');
+  await expect(email).toHaveValue('');
+  await expect(phone).toHaveValue('+7');
+  await expect(comment).toHaveValue('');
+  await expect(listCountry).toHaveValue('ru');
 });
 
 test('4. Проверка обновления данных', async ({ page }) => {
