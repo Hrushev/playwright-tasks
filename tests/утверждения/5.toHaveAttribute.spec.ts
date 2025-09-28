@@ -46,6 +46,10 @@ test('3. Проверка атрибутов изображения', async ({ p
   // 2. Проверить что оно имеет src="user.jpg"
   // 3. Проверить что оно имеет alt="Аватар пользователя"
   // 4. Проверить что оно имеет width="200"
+  const image = page.getByAltText('Аватар пользователя');
+  await expect(image).toHaveAttribute('src', 'user.jpg');
+  await expect(image).toHaveAttribute('alt', 'Аватар пользователя');
+  await expect(image).toHaveAttribute('width', '200');
 });
 
 test('4. Проверка атрибутов формы', async ({ page }) => {
