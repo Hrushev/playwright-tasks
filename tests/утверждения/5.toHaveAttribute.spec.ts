@@ -61,6 +61,16 @@ test('4. Проверка атрибутов формы', async ({ page }) => {
   // 3. Нажать кнопку "Активировать email"
   // 4. Проверить что поле "Email" больше не имеет атрибута disabled
   // 5. Проверить что placeholder изменился на "Введите ваш email"
+  const username = page.getByPlaceholder('Имя пользователя');
+  await expect(username).toHaveAttribute('required', '');
+  await expect(username).toHaveAttribute('minlength', '3');
+
+  const email = page.locator('#email');
+  await expect(email).toHaveAttribute('disabled', '');
+
+  await page.getByRole('button', { name: 'Активировать email' }).click();
+  await expect(email).not.toHaveAttribute('disabled', '');
+  await expect(email).toHaveAttribute('placeholder', 'Введите ваш email');
 });
 
 test('5. Проверка data-атрибутов', async ({ page }) => {
