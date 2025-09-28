@@ -85,4 +85,16 @@ test('5. Проверка data-атрибутов', async ({ page }) => {
   // 5. Проверить что data-user-id изменился (не равен "12345")
   // 6. Еще раз нажать кнопку
   // 7. Проверить что data-visible снова "true"
+  const dataContainer = page.getByText('Контейнер с data-атрибутами');
+  await expect(dataContainer).toHaveAttribute('data-role', 'container');
+  await expect(dataContainer).toHaveAttribute('data-visible', 'true');
+  await expect(dataContainer).toHaveAttribute('data-user-id', '12345');
+
+  const updateButton = page.getByRole('button', { name: 'Обновить data-атрибуты' });
+  await updateButton.click();
+  await expect(dataContainer).toHaveAttribute('data-visible', 'false');
+  await expect(dataContainer).not.toHaveAttribute('data-user-id', '12345');
+
+  await updateButton.click();
+  await expect(dataContainer).toHaveAttribute('data-visible', 'true');
 });
