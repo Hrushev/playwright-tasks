@@ -111,6 +111,26 @@ test('4. Проверка обновления данных', async ({ page }) =
   // 3. Заполнить поле "Комментарии" значением "Важный комментарий"
   // 4. Нажать кнопку "Обновить данные"
   // 5. Проверить что в блоке вывода содержится текст с введенными данными
+  const userName = page.getByLabel('Имя пользователя:');
+  await expect(userName).toHaveValue('Гость');
+  await userName.fill('Мария');
+  await expect(userName).toHaveValue('Мария');
+
+  const email = page.getByLabel('Электронная почта:');
+  await expect(email).toHaveValue('');
+  await email.fill('maria@mail.ru');
+  await expect(email).toHaveValue('maria@mail.ru');
+
+  const comment = page.getByLabel('Комментарии:');
+  await expect(comment).toHaveValue('');
+  await comment.fill('Важный комментарий');
+  await expect(comment).toHaveValue('Важный комментарий');
+
+  await page.locator('#update-btn').click();
+  const output = await page.locator('#output').textContent();
+  expect(output).toContain('Мария');
+  expect(output).toContain('maria@mail.ru');
+  expect(output).toContain('Важный комментарий');
 });
 
 test('5. Проверка пустых значений', async ({ page }) => {
