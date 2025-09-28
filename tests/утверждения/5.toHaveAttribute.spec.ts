@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { execPath } from 'process';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('https://osstep.github.io/assertion_tohaveattribute');
@@ -12,6 +13,13 @@ test('1. Проверка атрибутов основной кнопки', asy
   // 4. Нажать кнопку "Переключить атрибуты"
   // 5. Проверить что атрибут data-action изменился на "cancel"
   // 6. Проверить что атрибут title изменился на "Отмена действия"
+  const mainBtn = page.locator('#main-btn');
+  await expect(mainBtn).toHaveAttribute('data-action', 'submit');
+  await expect(mainBtn).toHaveAttribute('title', 'Основная кнопка');
+
+  await page.locator('#toggle-btn').click();
+  await expect(mainBtn).toHaveAttribute('data-action', 'cancel');
+  await expect(mainBtn).toHaveAttribute('title', 'Отмена действия');
 });
 
 test('2. Проверка отключения кнопки', async ({ page }) => {
