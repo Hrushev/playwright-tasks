@@ -35,6 +35,30 @@ test('2. Проверка изменения значений полей', async
   // 4. Заполнить поле "Комментарии" значением "Тестовый комментарий"
   // 5. Выбрать в списке "Страна" значение "Казахстан" (kz)
   // 6. Проверить что все поля содержат новые значения
+  const userName = page.getByLabel('Имя пользователя:');
+  await expect(userName).toHaveValue('Гость');
+  await userName.fill('Алексей');
+  await expect(userName).toHaveValue('Алексей');
+
+  const email = page.getByLabel('Электронная почта:');
+  await expect(email).toHaveValue('');
+  await email.fill('alex@example.com');
+  await expect(email).toHaveValue('alex@example.com');
+
+  const phone = page.getByLabel('Телефон:');
+  await expect(phone).toHaveValue('+7');
+  await phone.fill('+7 (123) 456-78-90');
+  await expect(phone).toHaveValue('+7 (123) 456-78-90');
+
+  const comment = page.getByLabel('Комментарии:');
+  await expect(comment).toHaveValue('');
+  await comment.fill('Тестовый комментарий');
+  await expect(comment).toHaveValue('Тестовый комментарий');
+
+  const listCountry = page.getByLabel('Страна:');
+  await expect(listCountry).toHaveValue('ru');
+  await listCountry.selectOption('Казахстан');
+  await expect(listCountry).toHaveValue('kz');
 });
 
 test('3. Проверка сброса формы', async ({ page }) => {
