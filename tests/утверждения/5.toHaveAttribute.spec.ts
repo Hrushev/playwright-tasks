@@ -30,6 +30,14 @@ test('2. Проверка отключения кнопки', async ({ page }) =
   // 4. Проверить что значение атрибута disabled равно пустой строке
   // 5. Еще раз нажать "Отключить кнопку"
   // 6. Проверить что атрибут disabled отсутствует
+  const mainBtn = page.getByRole('button', { name: 'Отправить' });
+  await expect(mainBtn).not.toHaveAttribute('disabled');
+
+  await page.getByRole('button', { name: 'Отключить кнопку' }).click();
+  await expect(mainBtn).toHaveAttribute('disabled', '');
+
+  await page.getByRole('button', { name: 'Отключить кнопку' }).click();
+  await expect(mainBtn).not.toHaveAttribute('disabled');
 });
 
 test('3. Проверка атрибутов изображения', async ({ page }) => {
