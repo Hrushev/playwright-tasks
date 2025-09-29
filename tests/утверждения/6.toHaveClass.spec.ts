@@ -68,6 +68,16 @@ test('4. Проверка классов карточки пользовател
   // 4. Нажать кнопку "Отметить как просроченный"
   // 5. Проверить что карточка имеет оба класса: "premium" и "expired"
   // 6. Проверить что классы содержатся в любом порядке
+  const userCard = page.locator('#user-card');
+  await expect(userCard).not.toHaveClass(/premium/);
+
+  await page.getByRole('button', { name: 'Перейти на Премиум' }).click();
+  await expect(userCard).toHaveClass(/premium/);
+
+  await page.getByRole('button', { name: 'Отметить как просроченный' }).click();
+  await expect(userCard).toHaveClass(/premium/);
+  await expect(userCard).toHaveClass(/expired/);
+  await expect(userCard).toHaveClass(/(?=.*\bpremium\b)(?=.*\bexpired\b)/);
 });
 
 test('5. Проверка элемента с несколькими классами', async ({ page }) => {
