@@ -89,4 +89,15 @@ test('5. Проверка элемента с несколькими класс�
   // 4. Проверить что класс "large" удален
   // 5. Проверить что класс "rounded" остался
   // 6. Проверить что элемент имеет класс "box" (основной класс)
+  const multiClass = page.locator('#multi-class');
+  await expect(multiClass).toHaveClass(
+    /(?=.*\bbox\b)(?=.*\bwarning\b)(?=.*\blarge\b)(?=.*\brounded\b)/,
+  );
+
+  await page.locator('#modify-classes').click();
+  await expect(multiClass).not.toHaveClass(/warning/);
+  await expect(multiClass).toHaveClass(/error/);
+  await expect(multiClass).not.toHaveClass(/large/);
+  await expect(multiClass).toHaveClass(/rounded/);
+  await expect(multiClass).toHaveClass(/^box/);
 });
