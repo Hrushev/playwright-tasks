@@ -10,6 +10,15 @@ test('1. Проверка начальных классов элементов',
   // 2. Проверить что box1 не имеет класса "error"
   // 3. Найти элемент box2 и проверить что он имеет класс "error"
   // 4. Найти элемент box3 и проверить что он имеет класс "hidden"
+  const box1 = page.locator('#box1');
+  await expect(box1).toHaveClass(/active/);
+  await expect(box1).not.toHaveClass(/error/);
+
+  const box2 = page.locator('#box2');
+  await expect(box2).toHaveClass(/error/);
+
+  const box3 = page.locator('#box3');
+  await expect(box3).toHaveClass(/hidden/);
 });
 
 test('2. Проверка переключения классов box1', async ({ page }) => {
