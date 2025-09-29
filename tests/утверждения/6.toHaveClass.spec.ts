@@ -49,6 +49,15 @@ test('3. Проверка показа/скрытия элемента', async (
   // 3. Проверить что box3 больше не имеет класса "hidden"
   // 4. Еще раз нажать кнопку
   // 5. Проверить что класс "hidden" снова присутствует
+  const box3 = page.locator('#box3');
+  await expect(box3).toHaveClass(/hidden/);
+
+  const buttonBox3 = page.getByRole('button', { name: 'Показать/скрыть box3' });
+  await buttonBox3.click();
+  await expect(box3).not.toHaveClass(/hidden/);
+
+  await buttonBox3.click();
+  await expect(box3).toHaveClass(/hidden/);
 });
 
 test('4. Проверка классов карточки пользователя', async ({ page }) => {
