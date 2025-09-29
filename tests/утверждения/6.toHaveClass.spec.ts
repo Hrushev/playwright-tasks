@@ -29,6 +29,17 @@ test('2. Проверка переключения классов box1', async (
   // 4. Проверить что box1 больше не имеет класса "active"
   // 5. Еще раз нажать кнопку
   // 6. Проверить что классы вернулись к исходным
+  const box1 = page.locator('#box1');
+  await expect(box1).toHaveClass(/active/);
+
+  const buttonBox1 = page.getByRole('button', { name: 'Переключить box1' });
+  await buttonBox1.click();
+  await expect(box1).not.toHaveClass(/active/);
+  await expect(box1).toHaveClass(/error/);
+
+  await buttonBox1.click();
+  await expect(box1).toHaveClass(/active/);
+  await expect(box1).not.toHaveClass(/error/);
 });
 
 test('3. Проверка показа/скрытия элемента', async ({ page }) => {
