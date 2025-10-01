@@ -12,6 +12,14 @@ test('1. Проверка изменения URL при навигации', asy
   // 4. Проверить что URL изменился и содержит "#contacts"
   // 5. Нажать на ссылку "Главная"
   // 6. Проверить что URL снова содержит "#home"
+  await page.locator('#about-link').click();
+  await expect(page).toHaveURL(/.*#about$/);
+
+  await page.locator('#contacts-link').click();
+  await expect(page).toHaveURL(/.*#contacts$/);
+
+  await page.locator('#home-link').click();
+  await expect(page).toHaveURL(/.*#home$/);
 });
 
 test('2. Проверка URL при программной навигации', async ({ page }) => {
