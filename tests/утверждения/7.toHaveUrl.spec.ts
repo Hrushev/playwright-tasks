@@ -43,7 +43,7 @@ test('3. Проверка URL после ручного ввода', async ({ pa
   // 4. Обновить страницу
   // 5. Проверить что URL сохранился с "#about"
   await page.goto('https://osstep.github.io/assertion_tohaveurl#about');
-  await expect(page.locator('#about-link')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'О нас' })).toBeVisible();
   await expect(page).toHaveURL(/.*#about$/);
   await page.reload();
   await expect(page).toHaveURL(/.*#about$/);
