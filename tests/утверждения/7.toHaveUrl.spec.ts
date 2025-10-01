@@ -28,6 +28,11 @@ test('2. Проверка URL при программной навигации',
   // 2. Проверить что URL изменился на "#contacts"
   // 3. Нажать кнопку "Вернуться назад" (back() в истории)
   // 4. Проверить что URL вернулся к "#home"
+  await page.getByRole('button', { name: 'Перейти в раздел' }).click();
+  await expect(page).toHaveURL(/.*#contacts$/);
+
+  await page.goBack();
+  await expect(page).toHaveURL(/.*#home$/);
 });
 
 test('3. Проверка URL после ручного ввода', async ({ page }) => {
